@@ -7,6 +7,89 @@
     </head>
 
     <body>
+        <div class = "wrapper">
+            <header>
+                <p>YOUR DAILY BREW</p>
+                <h1>淹れる時間も、豆の時間も楽しむ。</h1>
+            </header>
+
+            <main>
+                <div class = "brew-tool">
+                    <section class = "ratio-container">
+                        <h2>Brew Ratio</h2>
+                        <div class = "ratio">
+                            <div class = "amount">
+                                <label for="amount-select">淹れる量：</label>
+
+                                <select id="amount-select" name="amount">
+                                    <option value="">量を選択</option>
+                                    <option value=1.0>1杯分</option>
+                                    <option value=1.5>1.5杯分</option>
+                                    <option value=2.0>2杯分</option>
+                                    <option value=2.5>2.5杯分</option>
+                                    <option value=3.0>3杯分</option>
+                                    <option value=3.5>3.5杯分</option>
+                                    <option value=4.0>4杯分</option>
+                                </select>
+                                
+                                <div class = "amount-value">
+                                    <p>200mL(出来上がり 約170mL)</p>
+
+                                </div>
+                                
+                            </div>
+
+                            <div class = "cal_ratio">
+                                <h4>豆とお湯の比率</h4>
+                                
+                                <div class = "ratio-bar">
+                                    <p>1:15 : 12g</p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </section>
+                    
+
+
+                    <section class = "timer-container">
+                        <h2>Brew Timer</h2>
+                        <div class = "timer">ここにストップウォッチ</div>
+                        <button>START</button>
+                        <button>RESET</button>
+                    </section>
+                </div>
+            
+                <section class = "beans">
+                    <div class = registration>
+                        <h2>Bean Cellar</h2>
+                        <p>豆の飲み頃を記録</p>
+                        <ul>
+                            <li>豆の名前：<input type="text"></li>
+
+                            <li>焙煎度：
+                            <label><input type = "radio" name = "roast" value = "a">浅煎り</label>
+                            <label><input type = "radio" name = "roast" value = "b">中煎り</label>
+                            <label><input type = "radio" name = "roast" value = "c">深煎り</label>
+                            </li>
+
+                            <li>焙煎日：<input type="date"></li>
+                        </ul>
+                        <button>+ 豆を登録する</button>
+                    </div>
+
+                    <div class = "record">
+                        <p>新しい豆を登録してください</p>
+                    </div>
+                </section>
+
+            </main>
+        
+            <footer>
+
+            </footer>
+        
+        </div>
         <script src = "main.js"></script>
     </body>
 </html>
