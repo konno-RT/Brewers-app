@@ -33,7 +33,7 @@
                                 </select>
                                 
                                 <div class = "amount-value">
-                                    <p>200mL(出来上がり 約170mL)</p>
+                                    <p id = "output-amount">200mL(出来上がり 約170mL)</p>
 
                                 </div>
                                 
@@ -54,9 +54,9 @@
 
                     <section class = "timer-container">
                         <h2>Brew Timer</h2>
-                        <div class = "timer">ここにストップウォッチ</div>
-                        <button>START</button>
-                        <button>RESET</button>
+                        <div id = "timer">00:00:00</div>
+                        <button id = "toggle">START</button>
+                        <button id = "reset">RESET</button>
                     </section>
                 </div>
             
@@ -90,6 +90,6 @@
             </footer>
         
         </div>
-        <script src = "main.js"></script>
+        <script src = "stopwatch.js"></script>
     </body>
 </html>
