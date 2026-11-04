@@ -1,3 +1,5 @@
+export function initStopwatch(){
+
 let startTime = 0;
 let elapsedTime = 0;
 let timerId = null;
@@ -38,3 +40,5 @@ resetBtn.addEventListener('click', () => {
   toggleBtn.textContent = 'START';
   updateDisplay();
 });
+
+}

@@ -33,17 +33,20 @@
                                 </select>
                                 
                                 <div class = "amount-value">
-                                    <p id = "output-amount">200mL(出来上がり 約170mL)</p>
+                                    <p>必要なお湯の量：</p>
+                                    <p id = "output-amount"></p>
 
                                 </div>
                                 
                             </div>
 
-                            <div class = "cal_ratio">
+                            <div>
                                 <h4>豆とお湯の比率</h4>
                                 
-                                <div class = "ratio-bar">
-                                    <p>1:15 : 12g</p>
+                                <div class = "cal_ratio">
+                                    <label for ="ratio-slider" id ="ratio-text">豆：湯 = 1 : <span id="ratio-display">15</span></label>
+                                    <input type="range" id ="ratio-slider" min="12" max="18" step="1" value="15">
+                                    <p>コーヒー豆：<span id ="coffee-weight">14</span>g</p>
                                 </div>
                                 
                             </div>
@@ -90,6 +93,7 @@
             </footer>
         
         </div>
-        <script src = "stopwatch.js"></script>
+        <script type= "module" src= "./JS/main.js"></script>
+
     </body>
 </html>
