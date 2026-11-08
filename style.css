@@ -153,6 +153,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .registration{
     min-width: 40rem;
+    flex-grow: 0;
 }
 .registration ul{
     padding-left: 0;
@@ -177,19 +178,42 @@ input{
     margin: 2rem auto 0 ;
 }
 
-.record{
+.record-container{
     background-color: rgba(148, 140, 120, 0.404);
     border-radius: 2rem;
     color: white;
-    min-width: 60rem;
+    flex: 1;
+
 }
 
-.record p{
+.record-container p{
     display: flex;
     justify-content: center;
-
-
 }
+
+.bean-record{
+    background-color: snow;
+    border-radius: 1.5rem;
+    padding: ;
+    margin: 1rem;
+    display: flex;
+}
+
+.bean-record p{
+    color: sienna;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: auto;
+    padding: 5px;
+    white-space: nowrap;
+}
+
+.bean-record p:empty {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
 
 button:hover { opacity: 0.8; }
 button:active { transform: translateY(1px); }

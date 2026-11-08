@@ -67,23 +67,33 @@
                     <div class = registration>
                         <h2>Bean Cellar</h2>
                         <p>豆の飲み頃を記録</p>
-                        <ul>
-                            <li>豆の名前：<input type="text"></li>
+                        <form id = "input-form">
+                            <ul>
+                                <li>豆の名前：<input type="text" id="input-bean"></li>
 
-                            <li>焙煎度：
-                            <label><input type = "radio" name = "roast" value = "a">浅煎り</label>
-                            <label><input type = "radio" name = "roast" value = "b">中煎り</label>
-                            <label><input type = "radio" name = "roast" value = "c">深煎り</label>
-                            </li>
+                                <li>焙煎度：
+                                <label><input type = "radio" name = "roast" value = "a">浅煎り</label>
+                                <label><input type = "radio" name = "roast" value = "b">中煎り</label>
+                                <label><input type = "radio" name = "roast" value = "c">深煎り</label>
+                                </li>
 
-                            <li>焙煎日：<input type="date"></li>
-                        </ul>
-                        <button>+ 豆を登録する</button>
+                                <li>焙煎日：<input type="date" id="input-date"></li>
+                            </ul>
+                        </form>
+                        <button id="savebtn">+ 豆を登録する</button>
                     </div>
 
-                    <div class = "record">
-                        <p>新しい豆を登録してください</p>
+                    <div class = "record-container">
+                        <div class = "bean-record">
+                            <p class="bean-name"></p>
+                            <p class="roast-level"></p>
+                            <p class="roast-date"></p>
+                            <p class="peak-time"></p>
+                        </div>
+                        
+                        <p id="output-area">新しい豆を登録してください</p>
                     </div>
+
                 </section>
 
             </main>
