@@ -23,6 +23,26 @@ export function initRecord(){
 
         const roastText = roastMap[roastRadio.value];
 
+        const roastDate = new Date(dateInput);
+        roastDate.setHours(0,0,0,0);
+
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        const diffDays = Math.floor((today - roastDate) / (1000 * 60 * 60* 24));
+
+        let peakTimeText = '';
+        if (diffDays < 0){
+            peakTimeText = '未来の日付です';
+        }else if (diffDays < 7){
+            peakTimeText = 'エイジング中';
+        }else if (diffDays >= 7 && diffDays < 22){
+            peakTimeText = '飲み頃です!';
+        }else {
+            peakTimeText = 'お早めに';
+        }
+
+
         const newRecord = document.createElement('div');
         newRecord.classList.add('bean-record');
 
@@ -30,7 +50,7 @@ export function initRecord(){
             <p class ="bean-name">${beanNameInput}</p>
             <p class ="roast-level">${roastText}</p>
             <p class ="roast-date">${dateInput}</p>
-
+            <p class ="peak-time">${peakTimeText}</p>
 
         `;
 
