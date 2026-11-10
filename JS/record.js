@@ -11,6 +11,8 @@ export function initRecord(){
         'c' : '深煎り'
     };
 
+
+
     saveBtn.addEventListener('click', () =>{
         const beanNameInput = document.getElementById('input-bean').value
         const roastRadio = document.querySelector('input[name = "roast"]:checked');
@@ -42,6 +44,8 @@ export function initRecord(){
             peakTimeText = 'お早めに';
         }
 
+        const formatDate = new Intl.DateTimeFormat('ja-JP', {month: '2-digit', day: '2-digit'});
+        const outputDate = formatDate.format(roastDate);
 
         const newRecord = document.createElement('div');
         newRecord.classList.add('bean-record');
@@ -49,16 +53,17 @@ export function initRecord(){
         newRecord.innerHTML = `
             <p class ="bean-name">${beanNameInput}</p>
             <p class ="roast-level">${roastText}</p>
-            <p class ="roast-date">${dateInput}</p>
+            <p class ="roast-date">${outputDate}</p>
             <p class ="peak-time">${peakTimeText}</p>
-
         `;
 
-
         recordContainer.insertBefore(newRecord, outputArea);
+        localStorage.setItem('beansData', 'bean-record'.value);
 
         inputForm.reset();
 
-
     });
+
+        
+
 }
