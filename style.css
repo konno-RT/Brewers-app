@@ -167,7 +167,7 @@ input[type="range"]::-webkit-slider-thumb {
 input{
     font-size: 2rem;
 }
-.beans button{
+#savebtn{
     font-size: 2rem;
     background-color: sienna;
     color: snow;
@@ -194,9 +194,10 @@ input{
 .bean-record{
     background-color: snow;
     border-radius: 1.5rem;
-    padding: ;
     margin: 1rem;
-    display: flex;
+    display: grid;
+    aline-items center;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr 0.3fr;
 }
 
 .bean-record p{
@@ -208,12 +209,17 @@ input{
     white-space: nowrap;
 }
 
-.bean-record p:empty {
+.bean-record :empty {
   background-color: transparent;
   padding: 0;
   border: none;
 }
 
+#deletebtn{
+    background-color: snow;
+    border: none;
+    border-radius: 5rem;
+}
 
 button:hover { opacity: 0.8; }
 button:active { transform: translateY(1px); }

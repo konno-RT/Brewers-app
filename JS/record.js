@@ -2,8 +2,7 @@ export function initRecord(){
 
     const saveBtn = document.getElementById('savebtn');
     const recordContainer = document.querySelector('.record-container');
-    const outputArea = document.getElementById('output-area');
-    const inputForm = document.getElementById('input-form')
+    const inputForm = document.getElementById('input-form');
 
     const roastMap = {
         'a' : '浅煎り',
@@ -11,7 +10,28 @@ export function initRecord(){
         'c' : '深煎り'
     };
 
+    function outputBeanRecord(data) {
+        const newRecord = document.createElement('div');
+        newRecord.classList.add('bean-record');
 
+        newRecord.innerHTML = `
+            <p class ="bean-name">${data.name}</p>
+            <p class ="roast-level">${data.roast}</p>
+            <p class ="roast-date">${data.date}</p>
+            <p class ="peak-time">${data.peakTime}</p>
+            <button id="deletebtn"><i class="fa-solid fa-trash"></i></button>
+        `;
+
+        recordContainer.appendChild(newRecord);
+    }
+
+    const savedData = localStorage.getItem('BeansData');
+    if (savedData) {
+        const beansArray = JSON.parse(savedData);
+        beansArray.forEach(bean => {
+            outputBeanRecord(bean);
+        });
+    }
 
     saveBtn.addEventListener('click', () =>{
         const beanNameInput = document.getElementById('input-bean').value
@@ -47,18 +67,24 @@ export function initRecord(){
         const formatDate = new Intl.DateTimeFormat('ja-JP', {month: '2-digit', day: '2-digit'});
         const outputDate = formatDate.format(roastDate);
 
-        const newRecord = document.createElement('div');
-        newRecord.classList.add('bean-record');
+        const currentBeanData = {
+            name : beanNameInput,
+            roast : roastText,
+            date : outputDate,
+            peakTime : peakTimeText
+        };
 
-        newRecord.innerHTML = `
-            <p class ="bean-name">${beanNameInput}</p>
-            <p class ="roast-level">${roastText}</p>
-            <p class ="roast-date">${outputDate}</p>
-            <p class ="peak-time">${peakTimeText}</p>
-        `;
+        outputBeanRecord(currentBeanData);
 
-        recordContainer.insertBefore(newRecord, outputArea);
-        localStorage.setItem('beansData', 'bean-record'.value);
+        let beansList = [];
+
+        const existingData = localStorage.getItem('BeansData');
+        if (existingData) {
+            beansList = JSON.parse(existingData);
+        }
+
+        beansList.push(currentBeanData);
+        localStorage.setItem('BeansData', JSON.stringify(beansList));
 
         inputForm.reset();
 
