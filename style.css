@@ -153,6 +153,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .registration{
     min-width: 40rem;
+    flex-grow: 0;
 }
 .registration ul{
     padding-left: 0;
@@ -166,7 +167,7 @@ input[type="range"]::-webkit-slider-thumb {
 input{
     font-size: 2rem;
 }
-.beans button{
+#savebtn{
     font-size: 2rem;
     background-color: sienna;
     color: snow;
@@ -177,18 +178,48 @@ input{
     margin: 2rem auto 0 ;
 }
 
-.record{
+.record-container{
     background-color: rgba(148, 140, 120, 0.404);
     border-radius: 2rem;
     color: white;
-    min-width: 60rem;
+    flex: 1;
+
 }
 
-.record p{
+.record-container p{
     display: flex;
     justify-content: center;
+}
 
+.bean-record{
+    background-color: snow;
+    border-radius: 1.5rem;
+    margin: 1rem;
+    display: grid;
+    aline-items center;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr 0.3fr;
+}
 
+.bean-record p{
+    color: sienna;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: auto;
+    padding: 5px;
+    white-space: nowrap;
+}
+
+.bean-record :empty {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+}
+
+.deletebtn{
+    background-color: snow;
+    color: gray;
+    border: none;
+    border-radius: 5rem;
 }
 
 button:hover { opacity: 0.8; }
