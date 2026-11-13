@@ -19,7 +19,7 @@ export function initRecord(){
             <p class ="roast-level">${data.roast}</p>
             <p class ="roast-date">${data.date}</p>
             <p class ="peak-time">${data.peakTime}</p>
-            <button id="deletebtn"><i class="fa-solid fa-trash"></i></button>
+            <button class="deletebtn" data-id ="${data.id}"><i class="fa-solid fa-trash"></i></button>
         `;
 
         recordContainer.appendChild(newRecord);
@@ -68,6 +68,7 @@ export function initRecord(){
         const outputDate = formatDate.format(roastDate);
 
         const currentBeanData = {
+            id : Date.now(),
             name : beanNameInput,
             roast : roastText,
             date : outputDate,
@@ -90,6 +91,26 @@ export function initRecord(){
 
     });
 
+    recordContainer.addEventListener('click', (event) =>{
+
+        const deleteBtn = event.target.closest('.deletebtn');
+
+        if  (deleteBtn) {
+            const deleteData = deleteBtn.closest('.bean-record');
+            deleteData.remove();
+
+            const deleteId = Number(deleteBtn.dataset.id);
+            const savedData = localStorage.getItem('BeansData');
+            
+            if (savedData) {
+                let beansList = JSON.parse(savedData);
+
+                beansList = beansList.filter(bean => bean.id !== deleteId);
+                localStorage.setItem('BeansData', JSON.stringify(beansList));
+            }
+        }
+        
+    })
         
 
 }

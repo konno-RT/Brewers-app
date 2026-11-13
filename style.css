@@ -215,8 +215,9 @@ input{
   border: none;
 }
 
-#deletebtn{
+.deletebtn{
     background-color: snow;
+    color: gray;
     border: none;
     border-radius: 5rem;
 }
